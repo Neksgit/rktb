@@ -15,8 +15,5 @@
   "dependencies": {
     "node-telegram-bot-api": "^0.30.0",
     "request": "^2.88.0"
-  },
-  "devDependencies": {
-    "socks5-https-client": "^1.2.1"
   }
 }
