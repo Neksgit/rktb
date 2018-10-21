@@ -1,0 +1,22 @@
+{
+  "name": "RKT8price",
+  "version": "1.0.0",
+  "description": "",
+  "main": "rkt8price_bot.js",
+  "scripts": {
+    "start": "node rkt8price_bot.js"
+  },
+  "engines": {
+    "node": "8.11.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.30.0",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "socks5-https-client": "^1.2.1"
+  }
+}
