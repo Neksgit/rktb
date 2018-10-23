@@ -1,10 +1,10 @@
 {
-  "name": "RKT8price",
+  "name": "RKTP",
   "version": "1.0.0",
   "description": "",
-  "main": "rkt8price_bot.js",
+  "main": "rktp.js",
   "scripts": {
-    "start": "node rkt8price_bot.js"
+    "start": "node rktp.js"
   },
   "engines": {
     "node": "8.11.1"
@@ -15,8 +15,5 @@
   "dependencies": {
     "node-telegram-bot-api": "^0.30.0",
     "request": "^2.88.0"
-  },
-  "devDependencies": {
-    "socks5-https-client": "^1.2.1"
   }
 }
