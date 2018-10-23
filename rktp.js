@@ -1,5 +1,4 @@
 const TelegramBot = require('node-telegram-bot-api');
-const Agent = require('socks5-https-client/lib/Agent');
 const request = require('request');
 
 const token = '669148001:AAG2rxvWByTl1Er7PHI78VIdI6gMKvXBPrA';
@@ -22,7 +21,6 @@ bot.on('text', function(msg) {
 						const lastask = '0.' + data.asks[0].price;
 						const lastbidusd = lastbid * wavesusd;
 						const lastaskres = lastask * wavesusd;
-						// var  rktusd = (wavesusd * lastbid).toFixed(2);
 						var rktusd = ((lastbidusd + lastaskres)/2).toFixed(2);
 
 						let md = `
