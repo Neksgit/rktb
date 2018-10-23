@@ -17,11 +17,11 @@ bot.on('text', function(msg) {
 
 					request('https://matcher.wavesplatform.com/matcher/orderbook/8LjKWGxXsiLpMziWanFn117e97gNXShD1zwSLCGpSPfb/WAVES', function(error, response, body) {
 						const data = JSON.parse(body);
-						const lastbid = '0.' + data.bids[0].price;
-						const lastask = '0.' + data.asks[0].price;
+						const lastbid = (data.bids[0].price / 100000000).toFixed(8);
+						const lastask = (data.asks[0].price / 100000000).toFixed(8);
 						const lastbidusd = lastbid * wavesusd;
-						const lastaskres = lastask * wavesusd;
-						var rktusd = ((lastbidusd + lastaskres)/2).toFixed(2);
+						const lastaskusd = lastask * wavesusd;
+						var rktusd = ((lastbidusd + lastaskusd)/2).toFixed(2);
 
 						let md = `
 							🚀  RKT8  /  WAVES  🌊
@@ -54,3 +54,4 @@ bot.on('text', function(msg) {
 		}
 
 });    
+ 
