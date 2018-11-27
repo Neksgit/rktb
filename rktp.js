@@ -36,22 +36,22 @@ bot.on('text', function(msg) {
 			})
 			
 
-		}	else if (messageText === '/waves') {
+	}	else if (messageText === '/waves') {
 
-			request('https://matcher.wavesplatform.com/matcher/orderbook/WAVES/Ft8X1v1LTa1ABafufpaCWyVj8KkaxUWE6xBhW6sNFJck', function(error, response, body) {
-				const data = JSON.parse(body);
-				const lastbid = '0.' + data.bids[0].price;
-				const lastask = '0.' + data.asks[0].price;
-				let md = `
-					🌊  WAVES  /  USD  💲
-		
-					Покупка: ${(lastbid * 10).toFixed(2)}
-					Продажа: ${(lastask * 10).toFixed(2)}
-				`;
-				bot.sendMessage(messageChatId, md);
-			})
+		request('https://matcher.wavesplatform.com/matcher/orderbook/WAVES/Ft8X1v1LTa1ABafufpaCWyVj8KkaxUWE6xBhW6sNFJck', function(error, response, body) {
+			const data = JSON.parse(body);
+			const lastbid = (data.bids[0].price)/100;
+			const lastask = (data.asks[0].price)/100;
 
-		}
+			let md = `
+				🌊  WAVES  /  USD  💲
+	
+				Покупка: ${lastbid}
+				Продажа: ${lastask}
+			`;
+			bot.sendMessage(messageChatId, md);
+		})
 
-});    
- 
+	}
+
+});  
