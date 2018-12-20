@@ -2,8 +2,10 @@ const TelegramBot = require('node-telegram-bot-api');
 const request = require('request');
 
 const token = '669148001:AAG2rxvWByTl1Er7PHI78VIdI6gMKvXBPrA';
+const logChatId = '-1001247214981';
 
 const bot = new TelegramBot(token, { polling: true });
+
 
 bot.on('text', function(msg) {    
 	const messageChatId = msg.chat.id;     
@@ -30,7 +32,8 @@ bot.on('text', function(msg) {
 							Продажа: ${lastask}
 							Цена в usd: ${rktusd}
 						`;	
-						bot.sendMessage(messageChatId, md);			
+						bot.sendMessage(messageChatId, md);
+						bot.sendMessage(logChatId, 'Пользователь ' + msg.from.first_name + ' (@' + msg.from.username + ') выполнил команду: ' + msg.text );			
 					})
 
 			})
@@ -50,6 +53,7 @@ bot.on('text', function(msg) {
 				Продажа: ${lastask}
 			`;
 			bot.sendMessage(messageChatId, md);
+			bot.sendMessage(logChatId, 'Пользователь ' + msg.from.first_name + ' (@' + msg.from.username + ') выполнил команду: ' + msg.text );
 		})
 
 	}
